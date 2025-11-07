@@ -1,0 +1,18 @@
+import {createContext,useState} from 'react'
+export const UserAuthorContextObj=createContext();
+function UserAuthorContext({children}) {
+    let [currentUser,setCurrentUser]=useState({
+        firstName:"",
+        email:"",
+        profileImageUrl:"",
+        
+    })
+
+  return (
+    <UserAuthorContextObj.Provider value={{currentUser,setCurrentUser}}>
+        {children}
+    </UserAuthorContextObj.Provider>
+  )
+}
+
+export default UserAuthorContext
